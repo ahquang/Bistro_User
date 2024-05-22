@@ -1,0 +1,35 @@
+.cart__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart__title {
+    text-align: center;
+}
+
+.cart__table {
+    margin: 20px;
+}
+.cart {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    &__total {
+        color: #AD343E;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px;
+    }
+    &__actions {
+        &__order {
+            background-color: #AD343E;
+            color: #FFFFFF;
+            border: 1px solid #AD343E;
+            margin-left: 10px;
+        }
+        &__close:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+}

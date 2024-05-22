@@ -1,0 +1,82 @@
+.menu__title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+
+    & div {
+        font-size: 72px;
+    }
+
+    & span {
+        width: 32%;
+        color: #495460;
+        font-size: 14px;
+    }
+}
+
+.menu__category {
+    margin: 20px;
+   
+    &__item {
+        margin: 0px 5px;
+
+        & button {
+            width: 8rem;
+            border: 1px solid #DBDFD0;
+        }
+
+        & button:hover {
+            background-color: #AD343E;
+            color: #ffffff;
+            border: 1px solid #AD343E;
+        }
+    }
+}
+
+.highlight {
+    background-color: #AD343E;
+    color: #ffffff;
+    border: 1px solid #AD343E;
+}
+
+.menu__container {
+    margin: 25px;
+    &__cards {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.menu__delivery {
+    width: 100%;
+    // padding: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #F9F9F7;
+    &__content {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        margin: 50px;
+        & div {
+            text-align: left;
+            margin-left: 0;
+        }
+        & span {
+            font-size: 12px;
+            width: 90%;
+        }
+    }
+    &__image {
+        width: 50%;
+        & img {
+            width: 38rem;
+        }
+    }
+}

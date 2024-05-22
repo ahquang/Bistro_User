@@ -1,0 +1,49 @@
+.feedback-item {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    background-color: #F9F9F7;
+    padding: 20px 20px 0px 20px;
+    margin: 20px 10px;
+    border-radius: 12px;
+    &__title{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: bold;
+        color: #AD343E;
+        padding: 10px 0px;
+    }
+
+    &__content {
+        height: 6rem;
+        font-size: 12px;
+        color: #414536;
+        margin-bottom: 10px;
+    }
+
+    &__user {
+        border-top: 1px solid #DBDFD0;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+
+        &__img {
+            & i {
+                font-size: 2.5rem;
+                padding-top: 10px;
+            }
+        }
+        &__info {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 10px 0px 10px;
+            &__name {
+                font-weight: bold;
+                font-size: 12px;
+            }
+            &__address {
+                font-size: 12px;
+            }
+        }
+    }
+}

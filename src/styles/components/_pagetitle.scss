@@ -1,0 +1,19 @@
+.page__title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+
+    & div {
+        font-size: 72px;
+    }
+
+    & span {
+        width: 32%;
+        color: #495460;
+        font-size: 14px;
+    }
+}

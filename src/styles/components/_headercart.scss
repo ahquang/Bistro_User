@@ -1,0 +1,48 @@
+.header__cart {
+    margin-right: 5px;
+    padding: 3px 6px;
+    cursor: pointer;
+    border: none;
+    & i {
+        padding: 10px;
+        padding-right: 0px;
+        font-size: 26px;
+    }
+    &__badge {
+        background-color: #000000;
+        color: #ffffff;
+        font-size: 10px; 
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 100px;
+    }
+
+}
+
+.header__cart:active {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 100px;
+}
+
+.bump {
+    animation: bump 300ms ease-out;
+  }
+  
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

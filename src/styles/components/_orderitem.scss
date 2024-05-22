@@ -1,0 +1,27 @@
+.order-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    // border:  1px solid rgb(166, 160, 160);
+
+    // margin: 20px;
+    &__info {
+      width: 10rem;
+      color: #AD343E;
+    }
+    &__total {
+      width: 10rem;
+      font-size: 18px;
+      font-weight: bold;
+      color: #AD343E;
+      padding: 0px 10px;
+    }
+    &__actions {
+      &__amount {
+        width: 3rem;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }

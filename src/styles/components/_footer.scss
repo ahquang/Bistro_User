@@ -1,0 +1,40 @@
+.footer {
+    margin: 0;
+    background-color: #474747;
+    color: #F9F9F7;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    &__contact {
+        display: flex;
+        padding: 20px 50px;
+        justify-content: space-around;
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            &__title {
+                margin: 10px 0px;
+                color: #ADB29E;
+            }
+        }
+
+        &__image {
+            width: 30%;
+
+            & img {
+                width: 10rem;
+                padding: 5px;
+            }
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+        color: #ADB29E;
+        font-size: 12px;
+        padding: 20px;
+        border-top: 1px solid #414536;
+    }
+}

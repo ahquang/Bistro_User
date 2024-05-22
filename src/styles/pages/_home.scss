@@ -1,0 +1,98 @@
+@use "../common/index.scss" as *;
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url("../../assets/images/banner.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &__title {
+        font-family: $text-font-secondary;
+        font-size: 76px;
+        line-height: 70px;
+        width: 40%;
+    }
+
+    &__description {
+        width: 35%;
+        font-size: 14px;
+        padding: 20px;
+    }
+
+    &__groupbtn {
+        & button {
+            margin: 10px 5px;
+        }
+
+        &__table {
+            background-color: rgba(173, 52, 62, 1);
+            color: #FFFFFF;
+            border: none;
+        }
+    }
+}
+
+.menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+
+    &__items {
+        display: flex;
+    }
+}
+
+.about {
+    background-color: rgba(249, 249, 247, 1);
+    display: flex;
+    justify-content: center;
+
+    &__img {
+        width: 40%;
+        padding: 50px 0px;
+        margin-left: 50px;
+
+        & img {
+            width: 25rem;
+        }
+    }
+
+    &__container {
+        width: 40%;
+        padding: 30px 0px;
+        text-align: left;
+
+        &__description {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 0px;
+        }
+
+        &__content {
+            font-size: 14px;
+            font-weight: 250;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.feedback {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+    &__items {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

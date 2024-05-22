@@ -1,0 +1,40 @@
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #DBDFD0;
+    padding: 15px;
+    margin: 10px;
+}
+
+.menu-item img {
+    width: 3.5rem;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #2C2F24;
+    margin: 10px 0px;
+}
+
+.content {
+    font-size: 12px;
+    line-height: 20px;
+    color: #414536;
+    margin: 10px 0px;
+}
+
+.explore {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    color: #AD343E;
+    margin: 10px 0px;
+}

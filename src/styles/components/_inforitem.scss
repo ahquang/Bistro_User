@@ -1,0 +1,14 @@
+.infor__item{
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 20px 15px;
+    border-radius: 8px;
+    & span {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,92 @@
+@use "../common/index.scss" as *;
+
+.header {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 10;
+    & ul {
+        display: flex;
+    }
+
+    &__topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 100px;
+        background-color: #474747;
+        color: #F9F9F7;
+
+        &__contact__info {
+            padding-right: 20px;
+            font-size: 14px;
+            line-height: 24px;
+
+            & i {
+                padding-right: 5px;
+            }
+        }
+    }
+
+    &__navbar {
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 60px;
+
+        &__logo {
+            display: flex;
+            align-items: center;
+
+            & span {
+                font-family: $text-font-secondary;
+                font-size: 24px;
+                font-weight: 500;
+                font-style: italic;
+                margin-left: 10px;
+            }
+
+        }
+
+        &__menu {
+            & ul a {
+                text-decoration: none;
+                color: #2C2F24;
+            }
+            & ul li {
+                margin: 0px 10px;
+                padding: 5px 15px;
+                font-weight: 500;
+                cursor: pointer;
+                transition-duration: 0.5s;
+            }
+
+            & ul li:hover {
+                background-color: rgba(219, 223, 208, 1);
+                border-radius: 34px;
+            }
+        }
+
+        &__groupbtn {
+            display: flex;
+            align-items: center;
+
+            & button {
+                background-color: transparent;
+            }
+    
+            & button:hover {
+                background-color: #000000;
+                color: #ffff;
+            }
+        }
+        
+    }
+
+}
+
+.active {
+    background-color: rgba(219, 223, 208, 1);
+    border-radius: 34px;
+}

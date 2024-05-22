@@ -1,0 +1,16 @@
+button {
+    font-weight: 600;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 34px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    border: 1px solid black;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background-color: rgb(189, 179, 179);
+    color: #ffffff;
+    border: 1px solid rgb(189, 179, 179);
+}
