@@ -1,6 +1,6 @@
-import { BASE_URL } from "../constants";
+import { BASE_URL_ORDERS } from "../constants";
 import { handleSaveDataToStorage } from "../utils/handleCartData";
-const baseUrl = `${BASE_URL}/orders`
+const baseUrl = `${BASE_URL_ORDERS}/orders`
 
 export const getOrderListAPI = async () => {
   const requestOptions = {
@@ -34,7 +34,15 @@ export const postOrderAPI = async (data) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      handleSaveDataToStorage("dataOrder", data)
+      let dataOrders = []
+      if (!localStorage.getItem("dataOrders")) {
+        dataOrders.push(data)
+        handleSaveDataToStorage("dataOrders", dataOrders)
+      } else {
+        dataOrders = JSON.parse(localStorage.getItem("dataOrders"))
+        dataOrders.push(data)
+        handleSaveDataToStorage("dataOrders", dataOrders)
+      }
     })
     .catch((error) => console.log(error));
 };

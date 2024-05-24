@@ -12,7 +12,6 @@ import "../styles/pages/_cart.scss";
 const Cart = () => {
   const ctx = useContext(CartContext);
   const navigate = useNavigate();
-  // const [disableOrder, setDisableOrder] = useState(true)
   const [api, contextHolder] = notification.useNotification();
 
   const openNotificationWithIcon = (type) => {
@@ -22,20 +21,15 @@ const Cart = () => {
         "Thanks for your order. Please wait a moment for our preparations",
       duration: 1,
       onClose() {
-        navigate("/menu/order");
+        navigate("/order");
       },
     });
   };
-
-  // useEffect(() => {
-  //   ctx.items.length === 0 ? setDisableOrder(true) : setDisableOrder(false)
-  // },[ctx.items.length])
 
   const [tableNumber, setTableNumber] = useState("");
   const handleOnChangeTableNumber = (e) => {
     setTableNumber(e.target.value);
   };
-
   const currentDate = new Date();
   const dataOrder = {
     ...ctx,

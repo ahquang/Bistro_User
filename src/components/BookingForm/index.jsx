@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormItem from "../FormItem";
 import MyButton from "../MyButton";
 import "../../styles/components/_bookingform.scss";
-const BookingForm = ({ onSubmit }) => {
+const BookingForm = ({ onSubmit, disabled }) => {
   const [dataTable, setDataTable] = useState({
     name: "",
     date: "",
@@ -59,7 +59,7 @@ const BookingForm = ({ onSubmit }) => {
         handleOnChange={handleOnChange("totalPerson")}
         value={dataTable.totalPerson}
       />
-      <MyButton>Book A Table</MyButton>
+      <MyButton disabled={disabled}>Book A Table</MyButton>
     </form>
   );
 };

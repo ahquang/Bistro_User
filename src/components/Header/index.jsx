@@ -8,6 +8,7 @@ import MyLogo from "../MyLogo";
 import HeaderCart from "../HeaderCart";
 
 const Header = () => {
+  const [menuVisible, setMenuVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(() => {
     const initIndex = window.location.pathname.includes("home")
       ? 0
@@ -17,9 +18,14 @@ const Header = () => {
       ? 2
       : window.location.pathname.includes("about")
       ? 3
+      : window.location.pathname.includes("order")
+      ? 4
       : 0;
     return initIndex;
   });
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
   return (
     <div className="header">
       <div className="header__topbar">
@@ -37,22 +43,28 @@ const Header = () => {
       </div>
       <div className="header__navbar">
         <MyLogo />
+        <div className="header__navbar__toggle">
+        <i class="bi bi-list" onClick={toggleMenu}></i>
+        </div>
         <div className="header__navbar__menu">
-          <ul>
+          <ul className={menuVisible ? "visible" : ""}>
             <Link to={"/home"}>
               <li className={activeIndex === 0 ? "active" : ""}>Home</li>
             </Link>
             <Link to={"/about"}>
               <li className={activeIndex === 3 ? "active" : ""}>About</li>
             </Link>
-            <Link to={"/menu"}>
+            <Link to={"/menu?type=All"}>
               <li className={activeIndex === 1 ? "active" : ""}>Menu</li>
             </Link>
-            <li>Pages</li>
+            <Link to={"/order"}>
+              <li className={activeIndex === 4 ? "active" : ""}>Orders</li>
+            </Link>
             <Link to={"/contact"}>
               <li className={activeIndex === 2 ? "active" : ""}>Contact</li>
             </Link>
           </ul>
+          
         </div>
         <div className="header__navbar__groupbtn">
          <HeaderCart/>

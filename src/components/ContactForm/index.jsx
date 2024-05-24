@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormItem from "../FormItem";
 import MyButton from "../MyButton";
 import "../../styles/components/_contactform.scss";
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = ({ onSubmit, disabled }) => {
   const [dataContact, setDataContact] = useState({
     name: "",
     address: "",
@@ -47,7 +47,7 @@ const ContactForm = ({ onSubmit }) => {
           placeholder="Write your message"
         ></textarea>
       </div>
-      <MyButton>Send</MyButton>
+      <MyButton disabled={disabled}>Send</MyButton>
     </form>
   );
 };

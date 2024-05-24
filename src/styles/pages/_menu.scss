@@ -80,3 +80,17 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .menu__delivery {
+        &__content {
+            margin: 20px;
+        }
+        &__image {
+            width: 60%;
+            & img {
+                width: 28rem;
+            }
+        }
+    }
+}

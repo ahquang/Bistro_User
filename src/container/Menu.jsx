@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import MyButton from "../components/MyButton";
@@ -8,16 +9,17 @@ import deliveryLogo from "../assets/images/delivery.png";
 import "../styles/pages/_menu.scss";
 import { getProductListAPI } from "../services/products.js";
 import { getCategoryListAPI } from "../services/categories.js";
-import { useLocation, useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 
 const Menu = () => {
+  const navigate = useNavigate();
   const [dataProduct, setDataProduct] = useState([]);
   const [dataCategory, setDataCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [activeButton, setActiveButton] = useState(0);
-  const params = useLocation();
-  console.log(params);
+  const [params] = useSearchParams()
+  const type = params.get("type")
+
   const fetchProductData = async () => {
     const productData = await getProductListAPI();
     setDataProduct(productData);
@@ -33,18 +35,24 @@ const Menu = () => {
     fetchProductData();
     window.scrollTo(0, 0);
   }, []);
+  
+  useEffect(() => {
+    type === "All" ? setSelectedCategory("") : setSelectedCategory(type)
+  }, [type])
 
   const filteredItems = dataProduct.filter((item) =>
     item.category.toLowerCase().includes(selectedCategory.toLowerCase().trim())
   );
 
   const handleOnClickAll = (e) => {
-    setSelectedCategory("");
-    setActiveButton(e.target.value);
+    const newQueryParams = new URLSearchParams(window.location.search);
+    newQueryParams.set('type', 'All');
+    navigate(`?${newQueryParams.toString()}`);
   };
   const handleOnClickCategory = (e) => {
-    setSelectedCategory(e.target.innerHTML);
-    setActiveButton(e.target.value);
+    const newQueryParams = new URLSearchParams(window.location.search);
+    newQueryParams.set('type', `${e.target.innerHTML}`);
+    navigate(`?${newQueryParams.toString()}`);
   };
   return (
     <Layout>
@@ -52,8 +60,8 @@ const Menu = () => {
       <ul className="menu__category">
         <li className="menu__category__item">
           <MyButton
-            value={0}
-            className={0 == activeButton ? "highlight" : ""}
+            value={"All"}
+            className={"" == selectedCategory ? "highlight" : ""}
             handleOnClick={handleOnClickAll}
           >
             All
@@ -62,11 +70,11 @@ const Menu = () => {
         {dataCategory.map((category, index) => (
           <li className="menu__category__item" key={index}>
             <MyButton
-              value={index + 1}
+              value={category.name}
               handleOnClick={handleOnClickCategory}
-              className={index + 1 == activeButton ? "highlight" : ""
+              className={category.name == selectedCategory ? "highlight" : ""
               }
-              key={index + 1}
+              key={category.name}
             >
               {category.name}
             </MyButton>
@@ -75,7 +83,7 @@ const Menu = () => {
       </ul>
       <div className="menu__container">
         <div className="menu__container__cards">
-          {filteredItems.map((product, index) => (
+          {filteredItems && filteredItems.map((product, index) => (
             <MenuCard
               id={product._id}
               key={index}

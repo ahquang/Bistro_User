@@ -51,7 +51,7 @@ const Home = () => {
               Book A Table
             </MyButton>
           </Link>
-          <Link to={"/menu"}>
+          <Link to={"/menu?type=All"}>
             <MyButton>Explore Menu</MyButton>
           </Link>
         </div>

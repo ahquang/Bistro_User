@@ -19,7 +19,7 @@ const HeaderCart = () => {
       if (interval) clearTimeout(interval);
     };
   }, [itemCount]);
-  console.log('itemCount', itemCount)
+
   return (
     <button ref={buttonRef} className="header__cart bump" onClick={ctx.onOpen}>
       <i class="bi bi-cart"></i>

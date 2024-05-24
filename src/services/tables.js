@@ -1,5 +1,5 @@
-import { BASE_URL } from "../constants";
-const baseURL = `${BASE_URL}/tables`;
+import { BASE_URL_TABLES } from "../constants";
+const baseURL = `${BASE_URL_TABLES}/tables`;
 
 export const getTableListAPI = async () => {
     const requestOptions = {

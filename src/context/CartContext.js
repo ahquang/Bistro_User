@@ -9,11 +9,11 @@ const CartContext = React.createContext({
   onRemoveItem: (id) => {},
   onClose: () => {},
   onOpen: () => {},
+  onSubmit: () => {},
   items: [],
 });
 
 const stateLocalStorage = handleLoadState();
-console.log('stateLocalStorage', stateLocalStorage)
 const defaultCartState = stateLocalStorage
   ? stateLocalStorage
   : { 
@@ -24,12 +24,10 @@ const defaultCartState = stateLocalStorage
     };
 
 const cartReducer = (state, action) => {
-  console.log(state.itemCount);
-  console.log('action', action)
+
   //ADD PRODUCT
   if (action.type === "ADD") {
     const updatedItemCount = state.itemCount + action.item.amount;
-    console.log(updatedItemCount + 'abc');
     const updatedTotalAmount =
       state.totalAmount + action.item.amount * action.item.price;
     const existingCartItemIndex = state.items.findIndex(
@@ -107,9 +105,16 @@ const cartReducer = (state, action) => {
       isOpen: false,
     };
   }
+
+  //ORDER SUBMIT
+  if (action.type === "SUBMIT") {
+    return defaultCartState;
+  }
+  
   return defaultCartState;
 };
 
+  
 const CartProvider = (props) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
@@ -131,6 +136,9 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "CLOSE" });
   };
 
+  const submitOrderHandler = () => {
+    dispatchCartAction({ type: "SUBMIT" });
+  };
   const cartContext = {
     items: cartState.items,
     itemCount: cartState.itemCount,
@@ -140,8 +148,9 @@ const CartProvider = (props) => {
     totalAmount: cartState.totalAmount,
     onOpen: openCartHandler,
     onClose: closeCartHandler,
+    onSubmit: submitOrderHandler
   };
-console.log('cartState.itemCount', cartState.itemCount)
+
   return (
     <CartContext.Provider value={cartContext}>
       {props.children}

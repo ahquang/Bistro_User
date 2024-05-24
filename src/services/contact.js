@@ -1,5 +1,5 @@
-import { BASE_URL } from "../constants";
-const baseURL = `${BASE_URL}/contacts`;
+import { BASE_URL_CONTACT } from "../constants";
+const baseURL = `${BASE_URL_CONTACT}/contacts`;
 
 export const getContactListAPI = async () => {
     const requestOptions = {

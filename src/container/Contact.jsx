@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
@@ -9,18 +9,20 @@ import "../styles/pages/_contact.scss"
 
 const Contact = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
   const [api, contextHolder] = notification.useNotification();
   const openNotificationWithIcon = (type) => {
     api[type]({
       message: "Send contact & message successful",
       description: "We greatly appriciate for your contributions to our system",
-      duration: null,
+      duration: 1,
       onClose() {
         navigate("/home");
       },
     });
   };
   const handleAddContact = async (newContact) => {
+    setLoading(true)
     await postContactAPI(newContact);
     openNotificationWithIcon("success");
   };
@@ -34,7 +36,7 @@ const Contact = () => {
       {contextHolder}
       <div className="contact">
         <PageTitle title={"Contact Us"} />
-        <ContactForm onSubmit={handleAddContact}/>
+        <ContactForm onSubmit={handleAddContact} disabled={loading}/>
       </div>
       <div className="info">
         <div className="info__item">

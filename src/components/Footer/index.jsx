@@ -12,7 +12,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__contact">
         <div className="footer__contact__info">
-          <MyLogo/>
+          <MyLogo className={"footer__contact__info__logo"}/>
           <span className="footer__contact__info__title">
             In the new era of technology we look a in the future with certainty
             and pride to for our company and.
