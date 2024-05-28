@@ -19,6 +19,8 @@
 }
 
 .menu__category {
+    display: flex;
+    justify-content: center;
     margin: 20px;
    
     &__item {
@@ -45,6 +47,8 @@
 
 .menu__container {
     margin: 25px;
+    display: flex;
+    justify-content: center;
     &__cards {
         width: 100%;
         display: flex;
@@ -63,6 +67,7 @@
         width: 30%;
         display: flex;
         flex-direction: column;
+        align-items: center;
         margin: 50px;
         & div {
             text-align: left;
@@ -82,14 +87,36 @@
 }
 
 @media screen and (max-width: 768px) {
+    .menu__category {
+        flex-wrap: wrap;
+        margin: 10px;
+        &__item {
+            margin: 10px;
+        }
+    }
     .menu__delivery {
+        flex-direction: column;
+        align-items: center;
         &__content {
-            margin: 20px;
+            width: 100%;
+            margin: 10px 0px;
+            & div {
+                margin-left: 20px;
+                margin-bottom: 10px;
+                font-size: 24px;
+            }
+            & span {
+                width: 70%;
+                text-align: center;
+                font-size: 12px;
+            }
         }
         &__image {
-            width: 60%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
             & img {
-                width: 28rem;
+                width: 22rem;
             }
         }
     }

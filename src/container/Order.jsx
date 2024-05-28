@@ -14,7 +14,6 @@ const Order = () => {
   const navigate = useNavigate();
   const [selectedOrder, setSelectedOrder] = useState();
   const dataLocalStorage = handleLoadDataFromStorage("dataOrders");
-  console.log(dataLocalStorage);
   const fetchData = async () => {
     const orderData = await getOrderListAPI();
     setSelectedOrder(orderData)
@@ -35,7 +34,7 @@ const Order = () => {
         <PageTitle title={"My Order"} />
         <div className="order__container">
         {dataLocalStorage &&
-          dataLocalStorage.map((data, index) => (
+          dataLocalStorage.reverse().map((data, index) => (
             <div className="order__detail" key={index}>
               <div className="order__detail__info">
                 <span>Table Number: {data.tableNumber}</span>
@@ -43,6 +42,9 @@ const Order = () => {
               </div>
               <div className="order__detail__time"> 
                 <span>Date: {data.date}</span>
+                <span>Type: {data.orderType}</span>
+              </div>
+              <div className="order__detail__type"> 
                 <span>Time: {data.time}</span>
               </div>
               <ul className="order__detail__list">

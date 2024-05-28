@@ -1,5 +1,8 @@
 import React, { useReducer } from "react";
-import { handleLoadState, handleSaveListDataToStorage } from "../utils/handleCartData";
+import {
+  handleLoadState,
+  handleSaveListDataToStorage,
+} from "../utils/handleCartData";
 
 const CartContext = React.createContext({
   itemCount: 0,
@@ -16,7 +19,7 @@ const CartContext = React.createContext({
 const stateLocalStorage = handleLoadState();
 const defaultCartState = stateLocalStorage
   ? stateLocalStorage
-  : { 
+  : {
       items: [],
       itemCount: 0,
       isOpen: false,
@@ -24,7 +27,6 @@ const defaultCartState = stateLocalStorage
     };
 
 const cartReducer = (state, action) => {
-
   //ADD PRODUCT
   if (action.type === "ADD") {
     const updatedItemCount = state.itemCount + action.item.amount;
@@ -54,8 +56,8 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
       isOpen: state.isOpen,
     };
-    handleSaveListDataToStorage(dataCart)
-    return dataCart
+    handleSaveListDataToStorage(dataCart);
+    return dataCart;
   }
 
   //REMOVE PRODUCT
@@ -82,8 +84,8 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
       isOpen: state.isOpen,
     };
-    handleSaveListDataToStorage(dataCart)
-    return dataCart
+    handleSaveListDataToStorage(dataCart);
+    return dataCart;
   }
 
   //OPEN MODAL
@@ -110,11 +112,9 @@ const cartReducer = (state, action) => {
   if (action.type === "SUBMIT") {
     return defaultCartState;
   }
-  
   return defaultCartState;
 };
 
-  
 const CartProvider = (props) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
@@ -148,7 +148,7 @@ const CartProvider = (props) => {
     totalAmount: cartState.totalAmount,
     onOpen: openCartHandler,
     onClose: closeCartHandler,
-    onSubmit: submitOrderHandler
+    onSubmit: submitOrderHandler,
   };
 
   return (

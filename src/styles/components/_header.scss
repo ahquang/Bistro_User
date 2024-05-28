@@ -17,7 +17,10 @@
         padding: 5px 100px;
         background-color: #474747;
         color: #F9F9F7;
-
+        &__contact {
+            display: flex;
+            flex-wrap: wrap;
+        }
         &__contact__info {
             padding-right: 20px;
             font-size: 14px;
@@ -50,9 +53,7 @@
 
         }
 
-        &__toggle {
-            display: none;
-        }
+       
 
         &__menu {
             & ul a {
@@ -79,6 +80,9 @@
         &__groupbtn {
             display: flex;
             align-items: center;
+            &__toggle {
+                display: none;
+            }
 
             & button {
                 background-color: transparent;
@@ -102,24 +106,18 @@
 @media screen and (max-width: 768px) {
     .header {
         &__topbar {
-            padding: 5px 50px;
+            padding: 5px 25px;
+            &__contact__info {
+                font-size: 80%;
+            }
         }
 
         &__navbar {
-            padding: 10px 30px;
+            padding: 10px 25px;
             flex-wrap: wrap;
             justify-content: space-between;
 
-            &__toggle {
-                display: flex;
-                flex-direction: column;
-                color: #000000;
-                font-size: 24px;
-                font-weight: bold;
-                padding: 10px 30px;
-                order: 3;
-                cursor: pointer;
-            }
+           
 
             &__menu {
                 width: 100vw;
@@ -154,7 +152,20 @@
                 }
             }
             &__groupbtn {
-                padding-right: 50px;
+                &__toggle {
+                    display: flex;
+                    flex-direction: column;
+                    color: #000000;
+                    font-size: 24px;
+                    font-weight: bold;
+                    padding: 10px;
+                    order: 3;
+                    cursor: pointer;
+                }
+                // padding-left: 30vw;
+                &__booking {
+                    display: none;
+                }
             }
         }
     }

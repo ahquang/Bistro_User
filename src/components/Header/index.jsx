@@ -43,9 +43,7 @@ const Header = () => {
       </div>
       <div className="header__navbar">
         <MyLogo />
-        <div className="header__navbar__toggle">
-        <i class="bi bi-list" onClick={toggleMenu}></i>
-        </div>
+        
         <div className="header__navbar__menu">
           <ul className={menuVisible ? "visible" : ""}>
             <Link to={"/home"}>
@@ -67,9 +65,12 @@ const Header = () => {
           
         </div>
         <div className="header__navbar__groupbtn">
+        <div className="header__navbar__groupbtn__toggle">
+        <i class="bi bi-list" onClick={toggleMenu}></i>
+        </div>
          <HeaderCart/>
           <Link to={"/home/booking"}>
-            <MyButton>Book A Table</MyButton>
+            <MyButton className={"header__navbar__groupbtn__booking"}>Book A Table</MyButton>
           </Link>
         </div>
       </div>

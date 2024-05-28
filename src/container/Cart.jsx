@@ -12,6 +12,7 @@ import "../styles/pages/_cart.scss";
 const Cart = () => {
   const ctx = useContext(CartContext);
   const navigate = useNavigate();
+  const [disabled, setDisabled] = useState();
   const [api, contextHolder] = notification.useNotification();
 
   const openNotificationWithIcon = (type) => {
@@ -26,21 +27,31 @@ const Cart = () => {
     });
   };
 
+  useEffect(() => {
+    ctx.items.length === 0 ? setDisabled(true) : setDisabled(false);
+  }, [ctx.items.length]);
+
   const [tableNumber, setTableNumber] = useState("");
+  const [orderType, setOrderType] = useState("Dine-in");
   const handleOnChangeTableNumber = (e) => {
     setTableNumber(e.target.value);
+  };
+  const handleOnChangeOrderType = (e) => {
+    setOrderType(e.target.value);
   };
   const currentDate = new Date();
   const dataOrder = {
     ...ctx,
     tableNumber: tableNumber,
+    orderType: orderType,
     date: currentDate.toLocaleDateString(),
     time: currentDate.toLocaleTimeString(),
-    status: "Preparing"
+    status: "Preparing",
   };
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    setDisabled(true);
     await postOrderAPI(dataOrder);
     localStorage.removeItem("listsData");
     if (!localStorage.getItem("listsData")) {
@@ -60,9 +71,17 @@ const Cart = () => {
             minNumber={1}
             maxNumber={20}
             handleOnChange={handleOnChangeTableNumber}
-            value={ctx.tableNumber}
+            value={tableNumber}
+            className={"cart__table__input"}
             require
           />
+          <div className="cart__table__type">
+            <label>Order Type</label>
+            <select onChange={handleOnChangeOrderType} value={orderType} required>
+              <option className="option">Dine-in</option>
+              <option className="option">Take Away</option>
+            </select>
+          </div>
         </div>
         <ul className="cart__list">
           {ctx.items.map((item) => (
@@ -89,7 +108,7 @@ const Cart = () => {
             </MyButton>
             <MyButton
               className="cart__actions__order"
-              disabled={ctx.items.length === 0 ? true : false}
+              disabled={disabled}
               type="submit"
             >
               Order

@@ -9,9 +9,10 @@ const FormItem = ({
   placeholder,
   minNumber,
   maxNumber,
+  className
 }) => {
   return (
-    <div className="form__item">
+    <div className={`form__item ${className}`} >
       <label>{label}</label>
       <input
         type={type}
@@ -21,6 +22,7 @@ const FormItem = ({
         placeholder={placeholder}
         min={minNumber}
         max={maxNumber}
+        
       />
     </div>
   );

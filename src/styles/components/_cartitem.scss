@@ -1,6 +1,7 @@
 .cart-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
   // border:  1px solid rgb(166, 160, 160);
   box-shadow: 5px 5px 10px 2px rgb(204, 201, 201);
@@ -11,6 +12,7 @@
     color: #AD343E;
   }
   &__total {
+    text-align: center;
     width: 10rem;
     font-size: 18px;
     font-weight: bold;
@@ -20,7 +22,6 @@
   &__actions {
     display: flex;
     align-items: center;
-    margin-left: 50px;
     & div {
       border-radius: 32px;
       border: none;
@@ -35,6 +36,27 @@
       text-align: center;
       font-size: 16px;
       font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .cart-item {
+    &__info {
+      width: 5rem;
+      & h2 {
+        font-size: 16px;
+      }
+    }
+    &__total {
+      width: 5rem;
+      font-size: 16px;
+    }
+    &__actions {
+      margin-left: 0px;
+      & div {
+        padding: 5px 10px;
+      }
     }
   }
 }
